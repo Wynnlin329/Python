@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flow</title>
+</head>
+<body>
+{% if name == 'yc' %}
+<br>Hello, {{ name|upper }} Master ~
+<br>Do you want to have ?
+<ul>
+    {% for drink in drinks %}
+        <li>{{ drink }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+Hello, Stranger!
+{% endif %}
+
+</body>
+</html>

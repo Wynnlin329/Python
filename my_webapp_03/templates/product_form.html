@@ -1,0 +1,35 @@
+{% extends "mybase.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}新增產品資料{% endblock %}
+
+{% block page_content %}
+
+{% if formData['name'] %}
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>收到 {{formData['name']}} 的資料!</strong>
+    </div>
+{% endif %}
+
+{% if form.errors %}
+    {% for error in formError %}
+    <div class="alert alert-warning alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>{{error}}</strong>
+    </div>
+  {% endfor %}
+{% endif %}
+
+{% if dbMsg %}
+    <div class="alert alert-info alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>{{dbMsg}}</strong>
+    </div>
+{% endif %}
+
+<br>
+<h3>新增產品資料</h3>
+{{ wtf.quick_form(form) }}
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "mybase.html" %}
+{% block title %}產品列表{% endblock %}
+
+{% block content %}
+<div style ="width:80%;margin: 0 auto" >
+  <br>
+  <h3>產品列表</h3>
+  <br>{{ pagination.links }}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      {% for name in colname %}
+
+      <th scope="col" >
+        {% if name !='編輯' and name !='刪除' %}
+        <a href="/list?per_page={{per_page}}&type=asc&col={{ name }}" ><i class="fa fa-sort-asc" style="vertical-align:top;"></i></a>
+        {{ name }}
+        <a href="/list?per_page={{per_page}}&type=desc&col={{ name }}" ><i class="fa fa-sort-desc" style="vertical-align:bottom;" ></i></a>
+        {% else %}
+        {{ name }}
+        {% endif %}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+      {% for row in rows %}
+        <tr>
+          <th scope="row">{{ row.0 }}</th>
+          <td>{{ row.1 }}</td>
+          <td>{{ row.2 }}</td>
+          <td>{{ row.3 }}</td>
+          <td>{{ row.4 }}</td>
+          <td>
+            {# <a href="/delete?id={{ row.0 }}" class="btn btn-primary btn-sm"  role="button">刪除</a> #}
+            <a href="/delete?id={{ row.0 }}" class="btn btn-primary btn-sm" role="button"
+               onclick="{if(confirm('確定刪除嗎{{ row.1 }}?')){this.document.formname.submit();return true;}return false;}">删除</a>
+
+          </td>
+          <td><a href="/update?id={{ row.0 }}" class="btn btn-primary btn-sm" role="button">編輯</a></td>
+        </tr>
+      {% endfor %}
+  </tbody>
+</table>
+ {{ pagination.links }}
+
+</div>
+
+
+{% endblock %}

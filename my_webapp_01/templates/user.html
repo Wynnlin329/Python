@@ -1,0 +1,9 @@
+{% extends "mybase.html" %}
+{% block title %}User{% endblock %}
+
+{% block page_content %}
+  <h1 class="text-success">Hello, My Name is {{ name|upper }}</h1>
+  <p class="text-info" >This is my first Web APP </p>
+  <p class="text-primary" >V1 is {{ v1 }} </p>
+  <p class="text-danger" >V2 is {{ v2 }} </p>
+{% endblock %}

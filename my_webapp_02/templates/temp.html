@@ -1,0 +1,21 @@
+{#
+    <form method="post" class="form-control">
+         {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.product_name.label() }} {{form.product_name(class="form-control")}}
+        </div>
+        <div class="form-group">
+            {{ form.product_class_id.label() }} {{ form.product_class_id(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.product_price.label(for="name") }} {{ form.product_price(class="form-control") }}
+        </div>
+         <div class="form-group">
+            {{ form.product_counts.label(for="name") }} {{ form.product_counts(class="form-control") }}
+        </div>
+        {{ form.submit(class="btn btn-primary") }}
+   </form>
+    #}
+
+<h2><b>新增產品資料表單</b></h2>
+{{ wtf.quick_form(form) }}

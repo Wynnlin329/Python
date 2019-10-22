@@ -1,0 +1,6 @@
+
+['C:/Users/Big data/PycharmProjects/untitled/輸入與輸出.py', 'text.txt', 'file.txt']
+命令參數的數量 3
+python程式路徑: C:/Users/Big data/PycharmProjects/untitled/輸入與輸出.py
+命令參數 1 text.txt
+命令參數 2 file.txt

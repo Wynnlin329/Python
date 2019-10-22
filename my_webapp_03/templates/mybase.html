@@ -1,0 +1,63 @@
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="shortcut icon" href="{{ url_for('static', filename = 'scholar_ico.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename = 'scholar_ico.ico') }}" type="image/x-icon">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.locale('zh-tw') }}
+{% endblock %}
+
+{% block title %}My Flask Demo{% endblock %}
+    {% block navbar %}
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="/">Logo</a>
+
+      <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+     <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('user', name='yc', v1=1, v2=2) }}">About</a>
+        </li>
+
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            Menu
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/new">產品新增</a>
+            <a class="dropdown-item" href="/list?per_page=3">產品列表</a>
+            <a class="dropdown-item" href="#">Link 3</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+    </nav>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div style ="width:80%;margin: 0 auto" >
+        {% block page_content %}{% endblock %}
+        </div>
+   </div>
+{% endblock %}
